@@ -1,0 +1,28 @@
+<script src='{{url_for("static",filename= "js/jscharting.js")}}'></script>
+<div>
+    <script>
+        var chart = JSC.chart("chartDiv",{
+           debug : true,
+           type: "line",
+           legend_visible :false,
+           xAxis : {
+               crosshair_enabled :true,
+               scale : {type : true}
+           },
+           yAxis: {orientation :"opposite",formatString:"c"},
+           defaultSeries:{
+                firstPoint_label_text : "<b>tester</b>",
+                defaultPoint_maker : {
+                    type :'circle',
+                    size: 8,
+                    fill: "white",
+                    outline : {width:2, color :"currentColor"}
+                }
+           },
+           title_label_text: "test"
+           series : {{data.graph1 | safe}},
+        })
+    </script>
+    <div class="chartDiv" style="max-width :740px; height:350px; margin: 0px auto">
+    </div>
+</div>
